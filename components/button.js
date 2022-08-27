@@ -6,35 +6,39 @@ function variantStyles({ variant, color }) {
   switch (variant) {
     case 'filled':
       return {
-        'bg-sky-500 text-white hover:bg-sky-700 focus:ring focus:ring-sky-300':
+        'bg-sky-500 text-white enabled:hover:bg-sky-700 focus:ring focus:ring-sky-300':
           color === 'sky',
-        'bg-red-500 text-white hover:bg-red-700 focus:ring focus:ring-red-300':
+        'bg-red-500 text-white enabled:hover:bg-red-700 focus:ring focus:ring-red-300':
           color === 'red',
-        'bg-green-500 text-white hover:bg-green-700 focus:ring focus:ring-green-300':
-          color === 'green',
-        'bg-orange-400 text-white hover:bg-orange-500 focus:ring focus:ring-orange-300':
-          color === 'yellow',
+        'bg-green-500 text-white enabled:hover:bg-green-700 focus:ring focus:ring-green-300':
+          color === 'green'
       };
     case 'light':
       return {
-        'bg-sky-50 text-white hover:bg-sky-200 focus:ring-1 focus:ring-sky-300 text-sky-600':
+        'bg-sky-50 text-white enabled:hover:bg-sky-100 focus:ring-1 focus:ring-sky-300 text-sky-600':
           color === 'sky',
-        'bg-red-50 text-white hover:bg-red-200 focus:ring-1 focus:ring-red-300 text-red-600':
+        'bg-red-50 text-white enabled:hover:bg-red-100 focus:ring-1 focus:ring-red-300 text-red-600':
           color === 'red',
+        'bg-green-50 text-white enabled:hover:bg-green-100 focus:ring-1 focus:ring-green-300 text-green-600':
+          color === 'green',
       };
     case 'outline':
       return {
-        'text-white hover:bg-sky-50 focus:ring-1 focus:ring-sky-200 text-sky-600 border border-sky-600':
+        'text-white enabled:hover:bg-sky-50 focus:ring-1 focus:ring-sky-200 text-sky-600 border border-sky-600':
           color === 'sky',
-        'text-white hover:bg-red-50 focus:ring-1 focus:ring-red-200 text-red-600 border border-red-600':
+        'text-white enabled:hover:bg-red-50 focus:ring-1 focus:ring-red-200 text-red-600 border border-red-600':
           color === 'red',
+        'text-white enabled:hover:bg-green-50 focus:ring-1 focus:ring-green-200 text-green-600 border border-green-600':
+          color === 'green',
       };
     case 'subtle':
       return {
-        'text-white hover:bg-sky-50 focus:ring-1 focus:ring-sky-200 text-sky-600':
+        'text-white enabled:hover:bg-sky-50 focus:ring-1 focus:ring-sky-200 text-sky-600':
           color === 'sky',
-        'text-white hover:bg-red-50 focus:ring-1 focus:ring-red-200 text-red-600':
+        'text-white enabled:hover:bg-red-50 focus:ring-1 focus:ring-red-200 text-red-600':
           color === 'red',
+        'text-white enabled:hover:bg-green-50 focus:ring-1 focus:ring-green-200 text-green-600':
+          color === 'green',
       };
     default:
       return null;
@@ -77,7 +81,7 @@ function Button({
   loading,
   ...props
 }) {
-  let styles = clsx(
+  let style = clsx(
     `transition-all duration-200 ease-out focus:outline-none font-semibold`,
     variantStyles({ variant, color }),
     roundedStyles(rounded),
@@ -92,7 +96,7 @@ function Button({
     <button
       type={type}
       disabled={disabled}
-      className={styles}
+      className={style}
       onClick={onClick}
       {...props}
     >
