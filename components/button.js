@@ -11,7 +11,7 @@ function variantStyles({ variant, color }) {
         'bg-red-500 text-white enabled:hover:bg-red-700 focus:ring focus:ring-red-300':
           color === 'red',
         'bg-green-500 text-white enabled:hover:bg-green-700 focus:ring focus:ring-green-300':
-          color === 'green'
+          color === 'green',
       };
     case 'light':
       return {
@@ -48,7 +48,7 @@ function variantStyles({ variant, color }) {
 function roundedStyles(rounded) {
   return {
     'rounded-none': rounded === 'none',
-    rounded: rounded === 'sm',
+    'rounded': rounded === 'sm',
     'rounded-md': rounded === 'md',
     'rounded-lg': rounded === 'lg',
     'rounded-xl': rounded === 'xl',
