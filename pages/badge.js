@@ -1,5 +1,6 @@
 import React from 'react';
 import Badge from '../components/Badge';
+import { ClockIcon, PlusIcon } from '@heroicons/react/24/outline';
 function Page() {
   // let colors = ['sky', 'red', 'green'];
   return (
@@ -22,24 +23,96 @@ function Page() {
         </Badge>
       </div>
       <div className="flex space-x-5">
-        <Badge color="red" size="xs" variant="outline">
+        <Badge
+          leftIcon={<ClockIcon></ClockIcon>}
+          color="red"
+          size="xs"
+          variant="outline"
+        >
           Settings
         </Badge>
-        <Badge color="red" size="sm" variant="outline">
+        <Badge
+          leftIcon={<ClockIcon></ClockIcon>}
+          color="red"
+          size="sm"
+          variant="outline"
+        >
           Settings
         </Badge>
-        <Badge color="red" size="md" variant="outline">
+        <Badge
+          leftIcon={<ClockIcon></ClockIcon>}
+          color="red"
+          size="md"
+          variant="outline"
+        >
           Settings
         </Badge>
-        <Badge color="red" size="lg" variant="outline">
+        <Badge
+          leftIcon={<ClockIcon></ClockIcon>}
+          color="red"
+          size="lg"
+          variant="outline"
+        >
           Settings
         </Badge>
-        <Badge color="red" size="xl" variant="outline">
+        <Badge
+          leftIcon={<ClockIcon></ClockIcon>}
+          color="red"
+          size="xl"
+          variant="outline"
+        >
           Settings
         </Badge>
       </div>
       <div className="flex space-x-5">
-        <Badge color="red" size="xs" variant="filled">
+        <Badge
+          leftIcon={<PlusIcon></PlusIcon>}
+          color="red"
+          size="xs"
+          variant="outline"
+        >
+          Settings
+        </Badge>
+        <Badge
+          leftIcon={<PlusIcon></PlusIcon>}
+          color="red"
+          size="sm"
+          variant="outline"
+        >
+          Settings
+        </Badge>
+        <Badge
+          leftIcon={<PlusIcon></PlusIcon>}
+          color="red"
+          size="md"
+          variant="outline"
+        >
+          Settings
+        </Badge>
+        <Badge
+          leftIcon={<PlusIcon></PlusIcon>}
+          color="red"
+          size="lg"
+          variant="outline"
+        >
+          Settings
+        </Badge>
+        <Badge
+          leftIcon={<PlusIcon></PlusIcon>}
+          color="red"
+          size="xl"
+          variant="outline"
+        >
+          Settings
+        </Badge>
+      </div>
+      <div className="flex space-x-5">
+        <Badge
+          leftIcon={<ClockIcon></ClockIcon>}
+          color="red"
+          size="xs"
+          variant="filled"
+        >
           Settings
         </Badge>
         <Badge color="red" size="sm" variant="filled">

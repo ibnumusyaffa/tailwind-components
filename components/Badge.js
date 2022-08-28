@@ -2,6 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 // import Loading from './Loading';
 
+
 function variantStyles({ variant, color }) {
   switch (variant) {
     case 'filled':
@@ -28,16 +29,18 @@ function variantStyles({ variant, color }) {
 }
 
 function Badge({
-  size = 'md',
+  size = 'sm',
   variant = 'filled',
   color = 'sky',
   rounded = 'none',
   children,
   fullWidth = false,
+  leftIcon,
+  rightIcon,
   ...props
 }) {
   let style = clsx(
-    `transition-all duration-200 ease-out focus:outline-none font-semibold px-3 flex items-center justify-center`,
+    `transition-all duration-200 ease-out focus:outline-none font-semibold px-3 flex items-center justify-center space-x-1.5`,
     variantStyles({ variant, color }),
     {
       'rounded-none': rounded === 'none',
@@ -60,10 +63,34 @@ function Badge({
   );
 
   return (
-    <span>
-      <div className={style} {...props}>
-        <div>{children}</div>
-      </div>
+    <span className={style} {...props}>
+      {leftIcon ? (
+        <div
+          className={clsx({
+            'w-[13px] h-[13px]': size === 'xs',
+            'w-[14px] h-[14px]': size === 'sm',
+            'w-[15px] h-[15px]': size === 'md',
+            'w-[17px] h-[17px]': size === 'lg',
+            'w-[19px] h-[19px]': size === 'xl',
+          })}
+        >
+          {leftIcon}
+        </div>
+      ) : null}
+      <div>{children}</div>
+      {rightIcon ? (
+        <div
+          className={clsx({
+            'w-[13px] h-[13px]': size === 'xs',
+            'w-[14px] h-[14px]': size === 'sm',
+            'w-[15px] h-[15px]': size === 'md',
+            'w-[17px] h-[17px]': size === 'lg',
+            'w-[19px] h-[19px]': size === 'xl',
+          })}
+        >
+          {rightIcon}
+        </div>
+      ) : null}
     </span>
   );
 }
