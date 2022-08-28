@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 // import Loading from './Loading';
-
+// import { PlusIcon } from '@heroicons/react/24/solid';
 function variantStyles({ variant, color }) {
   switch (variant) {
     case 'filled':
@@ -77,7 +77,6 @@ function Button({
   onClick,
   fullWidth = false,
   disabled,
-  type = 'button',
   loading,
   ...props
 }) {
@@ -93,27 +92,38 @@ function Button({
   );
 
   return (
-    <button
-      type={type}
-      disabled={disabled}
-      className={style}
-      onClick={onClick}
-      {...props}
-    >
-      <div className="flex items-center justify-center px-3 ">
+    <button disabled={disabled} className={style} onClick={onClick} {...props}>
+      <div className="flex items-center justify-center px-3  h-full space-x-1.5">
         {/* {loading ? (
           <div className="w-6 h-6 mr-2">
             <Loading></Loading>
           </div>
         ) : null} */}
         {leftIcon && !loading ? (
-          <div className="mr-2 w-4 h-4 flex justify-center items-center">
+          <div
+            className={clsx({
+              'w-3 h-3': size === 'xs',
+              'w-4 h-4': size === 'sm',
+              'w-5 h-5': size === 'md',
+              'w-6 h-6': size === 'lg',
+              'w-7 h-7': size === 'xl',
+            })}
+          >
             {leftIcon}
           </div>
         ) : null}
-        {children}
+        <div>{children}</div>
+
         {rightIcon && !loading ? (
-          <div className="ml-2 w-4 h-4 flex justify-center items-center">
+          <div
+            className={clsx({
+              'w-3 h-3': size === 'xs',
+              'w-4 h-4': size === 'sm',
+              'w-5 h-5': size === 'md',
+              'w-6 h-6': size === 'lg',
+              'w-7 h-7': size === 'xl',
+            })}
+          >
             {rightIcon}
           </div>
         ) : null}

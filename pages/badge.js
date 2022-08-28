@@ -68,6 +68,12 @@ function Page() {
         <Badge color="red" rounded="lg" variant="outline">
           Settings
         </Badge>
+        <Badge color="red" rounded="xl" variant="outline">
+          Settings
+        </Badge>
+        <Badge color="red" rounded="full" variant="outline">
+          Settings
+        </Badge>
       </div>
     </div>
   );

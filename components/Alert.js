@@ -45,15 +45,15 @@ function Alert({ color = 'red', title, children, icon, withCloseButton }) {
         <div className="w-6 flex py-1  ml-5  justify-center">
           <button
             className={clsx('w-5 h-5', {
-              'text-yellow-800 hover:text-yellow-900 hover:bg-yellow-200 rounded':
+              'text-yellow-800 transition-all hover:text-yellow-900 hover:bg-yellow-200 active:bg-yellow-300 rounded':
                 color === 'yellow',
-              'text-red-800 hover:text-red-900 hover:bg-red-200 rounded':
+              'text-red-800 transition-all hover:text-red-900 hover:bg-red-200 active:bg-red-300 rounded':
                 color === 'red',
-              'text-green-800 hover:text-green-900 hover:bg-green-200 rounded':
+              'text-green-800 transition-all hover:text-green-900 hover:bg-green-200 active:bg-green-300 rounded':
                 color === 'green',
-              'text-blue-800 hover:text-blue-900 hover:bg-blue-200 rounded':
+              'text-blue-800 transition-all hover:text-blue-900 hover:bg-blue-200 active:bg-blue-300 rounded':
                 color === 'blue',
-              'text-gray-800 hover:text-gray-900 hover:bg-gray-200 rounded':
+              'text-gray-800 transition-all hover:text-gray-900 hover:bg-gray-200 active:bg-gray-300 rounded':
                 color === 'gray',
             })}
           >
