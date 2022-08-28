@@ -42,8 +42,10 @@ function Badge({
     {
       'rounded-none': rounded === 'none',
       'rounded': rounded === 'sm',
-      'rounded-lg': rounded === 'md',
-      'rounded-full': rounded === 'lg',
+      'rounded-md': rounded === 'md',
+      'rounded-lg': rounded === 'lg',
+      'rounded-xl': rounded === 'xl',
+      'rounded-full': rounded === 'full',
     },
     {
       'h-5 text-[11px]': size === 'xs',

@@ -6,7 +6,7 @@ function Page() {
     <React.Fragment>
       {colors.map((item, index) => {
         return (
-          <div className="p-5 grid grid-cols-10 gap-5" key={index}>
+          <div className="p-5 space-x-5" key={index}>
             <Button color={item} variant="filled">
               Settings
             </Button>
@@ -25,7 +25,7 @@ function Page() {
 
       {colors.map((item, index) => {
         return (
-          <div className="p-5 grid grid-cols-10 gap-5" key={index}>
+          <div className="p-5 space-x-5" key={index}>
             <Button color={item} disabled variant="filled">
               Settings
             </Button>
@@ -41,6 +41,24 @@ function Page() {
           </div>
         );
       })}
+
+      <div className="p-5 space-x-3">
+        <Button color="red" size='xs' variant="light">
+          Button xs
+        </Button>
+        <Button color="red" size='sm' variant="light">
+          Button sm
+        </Button>
+        <Button color="red" size='md' variant="light">
+          Button md
+        </Button>
+        <Button color="red" size='lg' variant="light">
+          Button lg
+        </Button>
+        <Button color="red" size='xl' variant="light">
+          Button xl
+        </Button>
+      </div>
     </React.Fragment>
   );
 }

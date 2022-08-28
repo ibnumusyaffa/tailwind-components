@@ -15,11 +15,11 @@ function variantStyles({ variant, color }) {
       };
     case 'light':
       return {
-        'bg-sky-50 text-white enabled:hover:bg-sky-100 enabled:active:bg-sky-200 focus:ring-2 focus:ring-sky-300 text-sky-600':
+        'bg-sky-50 enabled:hover:bg-sky-100 enabled:active:bg-sky-200 focus:ring-2 focus:ring-sky-300 text-sky-600':
           color === 'sky',
-        'bg-red-50 text-white enabled:hover:bg-red-100 enabled:active:bg-red-200  focus:ring-2 focus:ring-red-300 text-red-600':
+        'bg-red-50 enabled:hover:bg-red-100 enabled:active:bg-red-200  focus:ring-2 focus:ring-red-300 text-red-600':
           color === 'red',
-        'bg-green-50 text-white enabled:hover:bg-green-100 enabled:active:bg-green-200  focus:ring-2 focus:ring-green-300 text-green-600':
+        'bg-green-50 enabled:hover:bg-green-100 enabled:active:bg-green-200  focus:ring-2 focus:ring-green-300 text-green-600':
           color === 'green',
       };
     case 'outline':
@@ -60,7 +60,7 @@ function sizeStyles(size) {
   return {
     'h-8 text-xs': size === 'xs',
     'h-10 text-sm': size === 'sm',
-    'h-12 text-base': size === 'md',
+    'h-11 text-base': size === 'md',
     'h-14 text-lg': size === 'lg',
     'h-16 text-xl': size === 'xl',
   };
@@ -70,7 +70,7 @@ function Button({
   size = 'md',
   variant = 'filled',
   color = 'sky',
-  rounded = 'md',
+  rounded = 'sm',
   children,
   leftIcon,
   rightIcon,
