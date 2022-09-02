@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../components/button';
-import { PlusIcon, ArrowLongRightIcon } from '@heroicons/react/24/solid';
+import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 
 function Page() {
   let colors = ['sky', 'red', 'green'];
@@ -45,70 +45,11 @@ function Page() {
       })}
 
       <div className="p-5 space-x-3">
-        <Button color="red" size="xs" variant="light">
-          Button xs
-        </Button>
-        <Button color="red" size="sm" variant="light">
-          Button sm
-        </Button>
-        <Button color="red" size="md" variant="light">
-          Button md
-        </Button>
-        <Button color="red" size="lg" variant="light">
-          Button lg
-        </Button>
-        <Button color="red" size="xl" variant="light">
-          Button xl
-        </Button>
-      </div>
-
-      <div className="p-5 space-x-3">
         <Button
           color="red"
           size="xs"
-          variant="filled"
-          leftIcon={<PlusIcon></PlusIcon>}
-        >
-          Button xs
-        </Button>
-        <Button
-          color="red"
-          size="sm"
-          variant="filled"
-          leftIcon={<PlusIcon></PlusIcon>}
-        >
-          Button sm
-        </Button>
-        <Button
-          color="red"
-          size="md"
-          variant="filled"
-          leftIcon={<PlusIcon></PlusIcon>}
-        >
-          Button md
-        </Button>
-        <Button
-          color="red"
-          size="lg"
-          variant="filled"
-          leftIcon={<PlusIcon></PlusIcon>}
-        >
-          Button lg
-        </Button>
-        <Button
-          color="red"
-          size="xl"
-          variant="filled"
-          leftIcon={<PlusIcon></PlusIcon>}
-        >
-          Button xl
-        </Button>
-      </div>
-      <div className="p-5 space-x-3">
-        <Button
-          color="red"
-          size="xs"
-          variant="filled"
+          variant="light"
+          loading
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
         >
           Button xs
@@ -116,7 +57,8 @@ function Page() {
         <Button
           color="red"
           size="sm"
-          variant="filled"
+          variant="light"
+          loading
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
         >
           Button sm
@@ -124,7 +66,8 @@ function Page() {
         <Button
           color="red"
           size="md"
-          variant="filled"
+          variant="light"
+          loading
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
         >
           Button md
@@ -132,7 +75,8 @@ function Page() {
         <Button
           color="red"
           size="lg"
-          variant="filled"
+          variant="light"
+          loading
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
         >
           Button lg
@@ -140,7 +84,8 @@ function Page() {
         <Button
           color="red"
           size="xl"
-          variant="filled"
+          variant="light"
+          loading
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
         >
           Button xl
