@@ -69,54 +69,59 @@ function variantStyles({ variant, color }) {
   }
 }
 
-function roundedStyles(rounded) {
-  return {
-    'rounded-none': rounded === 'none',
-    'rounded': rounded === 'sm',
-    'rounded-md': rounded === 'md',
-    'rounded-lg': rounded === 'lg',
-    'rounded-xl': rounded === 'xl',
-    'rounded-full': rounded === 'full',
-  };
-}
-
-function sizeStyles(size) {
-  return {
-    'h-8 text-xs': size === 'xs',
-    'h-10 text-sm': size === 'sm',
-    'h-11 text-base': size === 'md',
-    'h-14 text-lg': size === 'lg',
-    'h-16 text-xl': size === 'xl',
-  };
-}
-
-function Button({
-  size = 'md',
-  variant = 'filled',
-  color = 'sky',
-  rounded = 'sm',
-  children,
-  leftIcon,
-  rightIcon,
-  onClick,
-  fullWidth = false,
-  disabled,
-  loading = false,
-  ...props
-}) {
+export default React.forwardRef(function Button(
+  {
+    size = 'md',
+    variant = 'filled',
+    color = 'sky',
+    rounded = 'sm',
+    children,
+    leftIcon,
+    rightIcon,
+    onClick,
+    fullWidth = false,
+    disabled,
+    loading = false,
+    ...props
+  },
+  ref,
+) {
   let style = clsx(
-    `transition-all focus:outline-none font-semibold`,
-    variantStyles({ variant, color }),
-    roundedStyles(rounded),
-    sizeStyles(size),
+    // base style
+    'transition-all focus:outline-none font-semibold',
     {
       'opacity-50 cursor-not-allowed': disabled,
       'w-full': fullWidth,
     },
+    variantStyles({ variant, color }),
+    // rounded style
+    {
+      'rounded-none': rounded === 'none',
+      'rounded': rounded === 'sm',
+      'rounded-md': rounded === 'md',
+      'rounded-lg': rounded === 'lg',
+      'rounded-xl': rounded === 'xl',
+      'rounded-full': rounded === 'full',
+    },
+    // size style
+    {
+      'h-8 text-xs': size === 'xs',
+      'h-10 text-sm': size === 'sm',
+      'h-11 text-base': size === 'md',
+      'h-14 text-lg': size === 'lg',
+      'h-16 text-xl': size === 'xl',
+    },
+
   );
 
   return (
-    <button disabled={disabled} className={style} onClick={onClick} {...props}>
+    <button
+      ref={ref}
+      disabled={disabled}
+      className={style}
+      onClick={onClick}
+      {...props}
+    >
       <div className="flex items-center justify-center px-3  h-full space-x-1.5">
         {loading ? (
           <div
@@ -144,7 +149,7 @@ function Button({
             {leftIcon}
           </div>
         ) : null}
-        <div>{children}</div>
+        {children ? <div>{children}</div> : null}
 
         {rightIcon ? (
           <div
@@ -162,6 +167,4 @@ function Button({
       </div>
     </button>
   );
-}
-
-export default Button;
+});
