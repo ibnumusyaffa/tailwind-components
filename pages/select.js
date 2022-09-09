@@ -1,27 +1,32 @@
 import React from 'react';
-import Input from '../components/Input';
+import Select from '../components/Select';
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
 function Page() {
   return (
     <div>
       <div className="p-5 space-y-5 w-1/3">
-        <Input
+        <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           variant="outline"
           size="xs"
           placeholder="Test"
           type="text"
-        ></Input>
-        <Input
+        >
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+        </Select>
+        <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           variant="outline"
           size="sm"
           placeholder="Test"
           type="text"
-        ></Input>
-        <Input
+        ></Select>
+        <Select
           leftOutside={
             <div className="flex items-center justify-center w-10 text-sm  bg-gray-200 rounded-l-sm border border-r-0 border-gray-300">
               @
@@ -36,65 +41,65 @@ function Page() {
           size="md"
           placeholder="Testt"
           type="text"
-        ></Input>
-        <Input
+        ></Select>
+        <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           variant="outline"
           size="lg"
           placeholder="Test"
           type="text"
-        ></Input>
-        <Input
+        ></Select>
+        <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           variant="outline"
           size="xl"
           placeholder="Test"
           type="text"
-        ></Input>
+        ></Select>
       </div>
       <div className="p-5 space-y-5 w-1/3">
-        <Input
+        <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           variant="filled"
           size="xs"
           placeholder="Test"
           type="text"
-        ></Input>
-        <Input
+        ></Select>
+        <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           variant="filled"
           size="sm"
           placeholder="Test"
           type="text"
-        ></Input>
-        <Input
+        ></Select>
+        <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           variant="filled"
           size="md"
           placeholder="Testt"
           type="text"
-        ></Input>
-        <Input
+        ></Select>
+        <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           variant="filled"
           size="lg"
           placeholder="Test"
           type="text"
-        ></Input>
-        <Input
+        ></Select>
+        <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           variant="filled"
           size="xl"
           placeholder="Test"
           type="text"
-        ></Input>
+        ></Select>
       </div>
     </div>
   );

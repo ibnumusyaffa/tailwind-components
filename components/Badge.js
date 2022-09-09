@@ -1,7 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-// import Loading from './Loading';
-
 
 function variantStyles({ variant, color }) {
   switch (variant) {
