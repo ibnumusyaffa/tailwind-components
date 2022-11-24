@@ -65,11 +65,11 @@ function Badge({
       {leftIcon ? (
         <div
           className={clsx({
-            'w-[13px] h-[13px]': size === 'xs',
-            'w-[14px] h-[14px]': size === 'sm',
-            'w-[15px] h-[15px]': size === 'md',
-            'w-[17px] h-[17px]': size === 'lg',
-            'w-[19px] h-[19px]': size === 'xl',
+            'h-[13px] w-[13px]': size === 'xs',
+            'h-[14px] w-[14px]': size === 'sm',
+            'h-[15px] w-[15px]': size === 'md',
+            'h-[17px] w-[17px]': size === 'lg',
+            'h-[19px] w-[19px]': size === 'xl',
           })}
         >
           {leftIcon}
@@ -79,11 +79,11 @@ function Badge({
       {rightIcon ? (
         <div
           className={clsx({
-            'w-[13px] h-[13px]': size === 'xs',
-            'w-[14px] h-[14px]': size === 'sm',
-            'w-[15px] h-[15px]': size === 'md',
-            'w-[17px] h-[17px]': size === 'lg',
-            'w-[19px] h-[19px]': size === 'xl',
+            'h-[13px] w-[13px]': size === 'xs',
+            'h-[14px] w-[14px]': size === 'sm',
+            'h-[15px] w-[15px]': size === 'md',
+            'h-[17px] w-[17px]': size === 'lg',
+            'h-[19px] w-[19px]': size === 'xl',
           })}
         >
           {rightIcon}

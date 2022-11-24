@@ -1,8 +1,8 @@
 import React from 'react';
-import clx, { clsx } from 'clsx';
+import clsx from 'clsx';
 
 function Select({
-  error = false,
+  error,
   disabled,
   leftOutside,
   leftIcon,
@@ -19,14 +19,14 @@ function Select({
     <div className="relative  flex">
       {leftOutside ? leftOutside : null}
       {leftIcon ? (
-        <div className="absolute left-0 top-0 flex items-center justify-center h-full px-2 text-gray-700 z-20">
+        <div className="absolute left-0 top-0 z-20 flex h-full items-center justify-center px-2 text-gray-700">
           <div
             className={clsx({
-              'w-3 h-3': size === 'xs',
-              'w-4 h-4': size === 'sm',
-              'w-5 h-5': size === 'md',
-              'w-6 h-6': size === 'lg',
-              'w-7 h-7': size === 'xl',
+              'h-3 w-3': size === 'xs',
+              'h-4 w-4': size === 'sm',
+              'h-5 w-5': size === 'md',
+              'h-6 w-6': size === 'lg',
+              'h-7 w-7': size === 'xl',
             })}
           >
             {leftIcon}
@@ -36,21 +36,16 @@ function Select({
 
       <select
         disabled={disabled}
-        className={clx(
+        className={clsx(
           // base style
-          'flex-1 transition-all duration-200 ease-in-out outline-none w-full z-10 leading-tight ',
+          'z-10 w-full flex-1 leading-tight outline-none transition-all duration-200 ease-in-out ',
           // variant style
           {
-            'bg-gray-100 border-none focus:bg-white':
-              variant === 'filled' && !error,
-            'bg-gray-100 border border-red-500 focus:bg-white':
-              variant === 'filled' && error,
+            'border-0 bg-gray-100 focus:bg-white': variant === 'filled',
+            'bg-white-100 border border-gray-300': variant === 'outline',
+            '!border border-red-500 ': error,
 
-            'bg-white-100 border border-gray-300':
-              variant === 'outline' && !error,
-            'border border-red-500 ': variant === 'outline' && error,
-
-            'opacity-75 cursor-not-allowed bg-gray-100': disabled,
+            'cursor-not-allowed bg-gray-100 opacity-75': disabled,
           },
           //color style
           {

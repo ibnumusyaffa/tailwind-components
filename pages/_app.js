@@ -1,7 +1,16 @@
-import '../styles/globals.css'
-
+import "../styles/globals.css";
+import { ThemeProvider } from "../context/ThemeProvider";
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <ThemeProvider
+      value={{
+        defaultColor: "sky",
+        defaultRadius: "none",
+      }}
+    >
+      <Component {...pageProps} />;
+    </ThemeProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
