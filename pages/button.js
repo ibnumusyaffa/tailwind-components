@@ -11,7 +11,7 @@ function Page() {
       <div className="px-4 py-3">
         <div className="text-lg">Variant</div>
         <div className="mt-2 flex space-x-5">
-          <Button variant="filled">Filled</Button>
+          <Button variant="solid">Filled</Button>
           <Button variant="light">Light</Button>
           <Button variant="outline">Outline</Button>
           <Button variant="subtle">Subtle</Button>
@@ -92,20 +92,20 @@ function Page() {
         </div>
         <div className="mt-4 flex space-x-5">
           <Button
-            variant="filled"
+            variant="solid"
             leftIcon={<ArrowLongLeftIcon></ArrowLongLeftIcon>}
           >
             Left Icon
           </Button>
           <Button
-            variant="filled"
+            variant="solid"
             leftIcon={<ArrowLongLeftIcon></ArrowLongLeftIcon>}
             rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           >
             Left Right Icon
           </Button>
           <Button
-            variant="filled"
+            variant="solid"
             rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           >
             Right icon

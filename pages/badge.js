@@ -111,7 +111,8 @@ function Page() {
           leftIcon={<ClockIcon></ClockIcon>}
           color="red"
           size="xs"
-          variant="filled"
+          variant="outline"
+          rounded='full'
         >
           Settings
         </Badge>

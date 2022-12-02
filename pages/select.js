@@ -1,10 +1,10 @@
-import React from 'react';
-import Select from '../components/Select';
-import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
+import React from "react";
+import Select from "../components/Select";
+import { ArrowLongRightIcon } from "@heroicons/react/24/solid";
 function Page() {
   return (
     <div>
-      <div className="p-5 space-y-5 w-1/3">
+      <div className="w-1/3 space-y-5 p-5">
         <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
@@ -17,6 +17,7 @@ function Page() {
           <option>2</option>
           <option>3</option>
           <option>4</option>
+          <option>Test</option>
         </Select>
         <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
@@ -25,15 +26,17 @@ function Page() {
           size="sm"
           placeholder="Test"
           type="text"
-        ></Select>
+        >
+          <option>Test</option>
+        </Select>
         <Select
           leftOutside={
-            <div className="flex items-center justify-center w-10 text-sm  bg-gray-200 rounded-l-sm border border-r-0 border-gray-300">
+            <div className="flex w-10 items-center justify-center rounded-l-sm  border border-r-0 border-gray-300 bg-gray-200 text-sm">
               @
             </div>
           }
           rightOutside={
-            <div className="flex items-center justify-center w-10 text-sm  bg-gray-200 rounded-r-sm border-t border-r border-b border-gray-300">
+            <div className="flex w-10 items-center justify-center rounded-r-sm  border-t border-r border-b border-gray-300 bg-gray-200 text-sm">
               @
             </div>
           }
@@ -41,7 +44,9 @@ function Page() {
           size="md"
           placeholder="Testt"
           type="text"
-        ></Select>
+        >
+          <option>Test</option>
+        </Select>
         <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
@@ -49,7 +54,9 @@ function Page() {
           size="lg"
           placeholder="Test"
           type="text"
-        ></Select>
+        >
+          <option>Test</option>
+        </Select>
         <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
@@ -57,9 +64,11 @@ function Page() {
           size="xl"
           placeholder="Test"
           type="text"
-        ></Select>
+        >
+          <option>Test</option>
+        </Select>
       </div>
-      <div className="p-5 space-y-5 w-1/3">
+      <div className="w-1/3 space-y-5 p-5">
         <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
@@ -67,7 +76,9 @@ function Page() {
           size="xs"
           placeholder="Test"
           type="text"
-        ></Select>
+        >
+          <option>Test</option>
+        </Select>
         <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
@@ -75,7 +86,9 @@ function Page() {
           size="sm"
           placeholder="Test"
           type="text"
-        ></Select>
+        >
+          <option>Test</option>
+        </Select>
         <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
@@ -83,7 +96,9 @@ function Page() {
           size="md"
           placeholder="Testt"
           type="text"
-        ></Select>
+        >
+          <option>Test</option>
+        </Select>
         <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
@@ -91,7 +106,9 @@ function Page() {
           size="lg"
           placeholder="Test"
           type="text"
-        ></Select>
+        >
+          <option>Test</option>
+        </Select>
         <Select
           leftIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
           rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
@@ -99,7 +116,9 @@ function Page() {
           size="xl"
           placeholder="Test"
           type="text"
-        ></Select>
+        >
+          <option>Test</option>
+        </Select>
       </div>
     </div>
   );

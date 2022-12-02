@@ -1,16 +1,33 @@
 import React from "react";
 import Switch from "../components/Switch";
 
-function Page() {
+function Demo() {
+  let [state, setState] = React.useState(false);
   return (
-    <div className="space-x-3 p-10">
-      {/* <Switch size="xs"></Switch>
-      <Switch size="sm"></Switch>
-      <Switch size="md"></Switch>
-      <Switch size="lg"></Switch> */}
-      <Switch size="xl"></Switch>
+    <div>
+      <div className="flex space-x-5 p-5">
+        <Switch
+          checked={state}
+          disabled
+          onCheckedChange={(e) => setState(e)}
+          size="xs"
+        ></Switch>
+        <Switch defaultChecked disabled size="sm">
+          <option>Test</option>
+        </Switch>
+        <Switch checked={state} size="md"></Switch>
+        <Switch checked={state} size="lg"></Switch>
+        <Switch checked={state} size="xl"></Switch>
+      </div>
+      <div className="flex space-x-5 p-5">
+        <Switch checked={state} size="xs"></Switch>
+        <Switch checked={state} size="sm"></Switch>
+        <Switch checked={state} size="md"></Switch>
+        <Switch checked={state} size="lg"></Switch>
+        <Switch checked={state} size="xl"></Switch>
+      </div>
     </div>
   );
 }
 
-export default Page;
+export default Demo;

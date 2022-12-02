@@ -1,33 +1,85 @@
 import React from "react";
-import clsx from "clsx";
-function Switch({ color = "blue", size = "lg", disabled, ...props }) {
-  let [selected, setSelected] = React.useState(false);
+import cx from "clsx";
+import * as SwitchPrimitive from "@radix-ui/react-switch";
+
+function Switch({
+  size = "md",
+  color = "blue",
+  defaultChecked,
+  checked,
+  onCheckedChange,
+  disabled,
+  required,
+  name,
+  value,
+}) {
   return (
-    <label
-      className={clsx(
-        "relative flex h-8 w-[62px] cursor-pointer items-center rounded-full",
+    <SwitchPrimitive.Root
+      defaultChecked={defaultChecked}
+      checked={checked}
+      onCheckedChange={onCheckedChange}
+      disabled={disabled}
+      required={required}
+      name={name}
+      value={value}
+      className={cx(
+        "relative",
+        "rounded-full",
         {
-          "bg-red-500": selected,
-          "bg-gray-200": !selected,
+          "opacity-50 cursor-not-allowed": disabled,
+        },
+        {
+          "h-[16px] w-[26px]": size === "xs",
+          "h-[20px] w-[34px]": size === "sm",
+          "h-[24px] w-[43px]": size === "md",
+          "h-[29px] w-[53px]": size === "lg",
+          "h-[34px] w-[62px]": size === "xl",
+        },
+        {
+          "focus:outline-none focus:ring-2 focus:ring-blue-300 data-[state='unchecked']:bg-gray-300 data-[state='checked']:bg-blue-500":
+            color === "blue",
         },
       )}
     >
-      <input
-        type="checkbox"
-        className="peer sr-only"
-        disabled={disabled}
-        onChange={(e) => setSelected(e.target.checked)}
-        {...props}
+      <SwitchPrimitive.Thumb
+        className={cx(
+          "block transition-transform ",
+          "rounded-full bg-white",
+
+          {
+            "h-[11px] w-[11px] translate-x-[2px] data-[state='checked']:translate-x-[13px]":
+              size === "xs",
+            "h-[15px] w-[15px] translate-x-[2px] data-[state='checked']:translate-x-[17px]":
+              size === "sm",
+            "h-[18px] w-[18px] translate-x-[3px] data-[state='checked']:translate-x-[22px]":
+              size === "md",
+            "h-[22px] w-[22px] translate-x-[4px] data-[state='checked']:translate-x-[27px]":
+              size === "lg",
+            "h-[26px] w-[26px] translate-x-[3px] data-[state='checked']:translate-x-[32px]":
+              size === "xl",
+          },
+        )}
       />
-      <div className="relative flex h-8 w-[62px] items-center justify-start rounded-full bg-blue-200 transition-all hover:justify-end">
-        <div
-          className={clsx(
-            "relative h-6 w-6  rounded-full bg-white",
-          )}
-        ></div>
-      </div>
-    </label>
+    </SwitchPrimitive.Root>
   );
+}
+
+{
+  /* <Switch.Root
+className={cx(
+  "relative",
+  "h-[31px] w-[55px] rounded-full",
+  "data-[state='checked']:bg-black bg-gray-300 ",
+)}
+>
+<Switch.Thumb
+  className={cx(
+    "block",
+    "h-[23px] w-[23px] rounded-full bg-white",
+    "data-[state='checked']:translate-x-[28px] translate-x-[4px] transition-transform ",
+  )}
+/>
+</Switch.Root> */
 }
 
 export default Switch;

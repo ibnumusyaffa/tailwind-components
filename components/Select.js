@@ -7,7 +7,6 @@ function Select({
   leftOutside,
   leftIcon,
   rightOutside,
-  rightIcon,
   size = 'md',
   color = 'sky',
   rounded = 'sm',

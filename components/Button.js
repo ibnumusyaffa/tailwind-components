@@ -28,48 +28,52 @@ function Spinner() {
 }
 function variantStyles({ variant, color }) {
   switch (variant) {
-    case "filled":
+    case "solid":
       return {
-        "bg-sky-500 text-white enabled:hover:bg-sky-600 enabled:active:bg-sky-700 focus:ring focus:ring-sky-300":
+        "focus:ring text-white": true,
+        "bg-sky-500 enabled:hover:bg-sky-600 enabled:active:bg-sky-700  focus:ring-sky-300":
           color === "sky",
-        "bg-red-500 text-white enabled:hover:bg-red-600 enabled:active:bg-red-700 focus:ring focus:ring-red-300":
+        "bg-red-500 enabled:hover:bg-red-600 enabled:active:bg-red-700  focus:ring-red-300":
           color === "red",
-        "bg-green-500 text-white enabled:hover:bg-green-600 enabled:active:bg-green-700 focus:ring focus:ring-green-300":
+        "bg-green-500 enabled:hover:bg-green-600 enabled:active:bg-green-700 focus:ring-green-300":
           color === "green",
-        "bg-pink-500 text-white enabled:hover:bg-pink-600 enabled:active:bg-pink-700 focus:ring focus:ring-pink-300":
+        "bg-pink-500 enabled:hover:bg-pink-600 enabled:active:bg-pink-700  focus:ring-pink-300":
           color === "pink",
       };
     case "light":
       return {
-        "bg-sky-50 enabled:hover:bg-sky-100 enabled:active:bg-sky-200 focus:ring-2 focus:ring-sky-300 text-sky-600":
+        "focus:ring-2": true,
+        "bg-sky-50 enabled:hover:bg-sky-100 enabled:active:bg-sky-200 focus:ring-sky-300 text-sky-600":
           color === "sky",
-        "bg-red-50 enabled:hover:bg-red-100 enabled:active:bg-red-200  focus:ring-2 focus:ring-red-300 text-red-600":
+        "bg-red-50 enabled:hover:bg-red-100 enabled:active:bg-red-200 focus:ring-red-300 text-red-600":
           color === "red",
-        "bg-green-50 enabled:hover:bg-green-100 enabled:active:bg-green-200  focus:ring-2 focus:ring-green-300 text-green-600":
+        "bg-green-50 enabled:hover:bg-green-100 enabled:active:bg-green-200 focus:ring-green-300 text-green-600":
           color === "green",
-        "bg-pink-50 enabled:hover:bg-pink-100 enabled:active:bg-pink-200  focus:ring-2 focus:ring-pink-300 text-pink-600":
+        "bg-pink-50 enabled:hover:bg-pink-100 enabled:active:bg-pink-200 focus:ring-pink-300 text-pink-600":
           color === "pink",
       };
     case "outline":
       return {
-        "text-white enabled:hover:bg-sky-50 enabled:active:bg-sky-100 focus:ring-2 focus:ring-sky-200 text-sky-600 border border-sky-600":
+        "text-white focus:ring-2": true,
+        "enabled:hover:bg-sky-50 enabled:active:bg-sky-100 focus:ring-sky-200 text-sky-600 border border-sky-600":
           color === "sky",
-        "text-white enabled:hover:bg-red-50 enabled:active:bg-red-100 focus:ring-2 focus:ring-red-200 text-red-600 border border-red-600":
+        "enabled:hover:bg-red-50 enabled:active:bg-red-100 focus:ring-red-200 text-red-600 border border-red-600":
           color === "red",
-        "text-white enabled:hover:bg-green-50 enabled:active:bg-green-100 focus:ring-2 focus:ring-green-200 text-green-600 border border-green-600":
+        "enabled:hover:bg-green-50 enabled:active:bg-green-100 focus:ring-green-200 text-green-600 border border-green-600":
           color === "green",
-        "text-white enabled:hover:bg-pink-50 enabled:active:bg-pink-100 focus:ring-2 focus:ring-pink-200 text-pink-600 border border-pink-600":
+        "enabled:hover:bg-pink-50 enabled:active:bg-pink-100 focus:ring-pink-200 text-pink-600 border border-pink-600":
           color === "pink",
       };
     case "subtle":
       return {
-        "text-white enabled:hover:bg-sky-50 enabled:active:bg-sky-100  focus:ring-2 focus:ring-sky-200 text-sky-600":
+        "text-white focus:ring-2": true,
+        "enabled:hover:bg-sky-50 enabled:active:bg-sky-100 focus:ring-sky-200 text-sky-600":
           color === "sky",
-        "text-white enabled:hover:bg-red-50 enabled:active:bg-red-100 focus:ring-2 focus:ring-red-200 text-red-600":
+        "enabled:hover:bg-red-50 enabled:active:bg-red-100 focus:ring-red-200 text-red-600":
           color === "red",
-        "text-white enabled:hover:bg-green-50 enabled:active:bg-greeb-100 focus:ring-2 focus:ring-green-200 text-green-600":
+        "enabled:hover:bg-green-50 enabled:active:bg-greeb-100 focus:ring-green-200 text-green-600":
           color === "green",
-        "text-white enabled:hover:bg-pink-50 enabled:active:bg-greeb-100 focus:ring-2 focus:ring-pink-200 text-pink-600":
+        "enabled:hover:bg-pink-50 enabled:active:bg-greeb-100 focus:ring-pink-200 text-pink-600":
           color === "pink",
       };
     default:
@@ -80,9 +84,9 @@ function variantStyles({ variant, color }) {
 export default React.forwardRef(function Button(
   {
     size = "md",
-    variant = "filled",
+    variant = "solid",
     color,
-    rounded,
+    rounded = "sm",
     children,
     leftIcon,
     rightIcon,
@@ -94,14 +98,14 @@ export default React.forwardRef(function Button(
   },
   ref,
 ) {
-  const theme = useTheme()
+  const theme = useTheme();
   if (!color) {
-    color = theme.defaultColor
+    color = theme.defaultColor;
   }
   if (!rounded) {
-    rounded = theme.defaultRadius
+    rounded = theme.defaultRadius;
   }
-  let style = clsx(
+  let buttonStyle = clsx(
     // base style
     "transition-all focus:outline-none font-semibold",
     {
@@ -120,64 +124,41 @@ export default React.forwardRef(function Button(
     },
     // size style
     {
-      "h-8 text-xs": size === "xs",
-      "h-10 text-sm": size === "sm",
-      "h-11 text-base": size === "md",
+      "h-6 text-xs": size === "xs",
+      "h-8 text-sm": size === "sm",
+      "h-10 text-base": size === "md",
       "h-14 text-lg": size === "lg",
       "h-16 text-xl": size === "xl",
     },
   );
 
+  let iconStyle = clsx({
+    "h-3 w-3": size === "xs",
+    "h-4 w-4": size === "sm",
+    "h-5 w-5": size === "md",
+    "h-6 w-6": size === "lg",
+    "h-7 w-7": size === "xl",
+  });
   return (
     <button
       ref={ref}
       disabled={disabled}
-      className={style}
+      className={buttonStyle}
       onClick={onClick}
       {...props}
     >
       <div className="flex h-full items-center justify-center  space-x-1.5 px-3">
         {loading ? (
-          <div
-            className={clsx({
-              "h-3 w-3": size === "xs",
-              "h-4 w-4": size === "sm",
-              "h-5 w-5": size === "md",
-              "h-6 w-6": size === "lg",
-              "h-7 w-7": size === "xl",
-            })}
-          >
+          <div className={iconStyle}>
             <Spinner></Spinner>
           </div>
         ) : null}
         {leftIcon && !loading ? (
-          <div
-            className={clsx({
-              "h-3 w-3": size === "xs",
-              "h-4 w-4": size === "sm",
-              "h-5 w-5": size === "md",
-              "h-6 w-6": size === "lg",
-              "h-7 w-7": size === "xl",
-            })}
-          >
-            {leftIcon}
-          </div>
+          <div className={iconStyle}>{leftIcon}</div>
         ) : null}
         {children ? <div>{children}</div> : null}
 
-        {rightIcon ? (
-          <div
-            className={clsx({
-              "h-3 w-3": size === "xs",
-              "h-4 w-4": size === "sm",
-              "h-5 w-5": size === "md",
-              "h-6 w-6": size === "lg",
-              "h-7 w-7": size === "xl",
-            })}
-          >
-            {rightIcon}
-          </div>
-        ) : null}
+        {rightIcon ? <div className={iconStyle}>{rightIcon}</div> : null}
       </div>
     </button>
   );

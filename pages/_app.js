@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
         defaultRadius: "none",
       }}
     >
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }
