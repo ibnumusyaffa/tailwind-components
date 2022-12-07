@@ -26,7 +26,7 @@ const CheckboxDemo = ({
       <Checkbox.Root
         disabled={disabled}
         className={clsx(
-          "flex items-center justify-center rounded border border-gray-300 text-white focus:outline-none focus:ring-2",
+          "flex items-center justify-center rounded data-[state=unchecked]:border border-gray-300 text-white focus:outline-none focus:ring-2",
           {
             "h-4 w-4": size === "xs",
             "h-5 w-5": size === "sm",
@@ -37,9 +37,9 @@ const CheckboxDemo = ({
           {
             "text-white": !disabled,
             "bg-gray-300 text-gray-800 opacity-50": disabled,
-            "focus:ring-blue-300 data-[state='checked']:bg-blue-500 data-[state=indeterminate]:bg-blue-500":
+            "focus:ring-blue-300 data-[state=checked]:bg-blue-500 data-[state=indeterminate]:bg-blue-500":
               color === "blue" && !disabled,
-            "focus:ring-green-300 data-[state='checked']:bg-green-500 data-[state=indeterminate]:bg-green-500":
+            "focus:ring-green-300 data-[state=checked]:bg-green-500 data-[state=indeterminate]:bg-green-500":
               color === "green" && !disabled,
           },
         )}
