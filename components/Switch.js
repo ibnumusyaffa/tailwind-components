@@ -64,22 +64,6 @@ function Switch({
   );
 }
 
-{
-  /* <Switch.Root
-className={cx(
-  "relative",
-  "h-[31px] w-[55px] rounded-full",
-  "data-[state='checked']:bg-black bg-gray-300 ",
-)}
->
-<Switch.Thumb
-  className={cx(
-    "block",
-    "h-[23px] w-[23px] rounded-full bg-white",
-    "data-[state='checked']:translate-x-[28px] translate-x-[4px] transition-transform ",
-  )}
-/>
-</Switch.Root> */
-}
+
 
 export default Switch;
