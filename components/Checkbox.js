@@ -1,6 +1,6 @@
 import React from "react";
 import * as Checkbox from "@radix-ui/react-checkbox";
-import clsx from "clsx";
+import cx from "clsx";
 
 const CheckboxDemo = ({
   color = "green",
@@ -14,19 +14,20 @@ const CheckboxDemo = ({
   defaultChecked,
   onCheckedChange,
 }) => {
-  let iconStyle = clsx({
+  let iconStyle = cx({
     "h-2 w-2": size === "xs",
     "h-3 w-3": size === "sm",
     "h-4 w-4": size === "md",
     "h-5 w-5": size === "lg",
-    "h-6 w-6": size === "xl",
+    "h-[22px] w-[22px]": size === "xl",
   });
   return (
     <div className="flex items-center space-x-3">
       <Checkbox.Root
         disabled={disabled}
-        className={clsx(
-          "flex items-center justify-center rounded data-[state=unchecked]:border border-gray-300 text-white focus:outline-none focus:ring-2",
+        className={cx(
+          "flex items-center justify-center rounded focus:outline-none focus:ring-2",
+          "data-[state=unchecked]:border-gray-300 data-[state=unchecked]:border",
           {
             "h-4 w-4": size === "xs",
             "h-5 w-5": size === "sm",
