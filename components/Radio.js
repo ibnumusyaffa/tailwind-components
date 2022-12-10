@@ -28,8 +28,8 @@ const RadioGroup = ({ color = "blue" }) => {
                 id={pokemon.id}
                 value={pokemon.title}
                 className={cx(
-                  "relative",
-                  "h-5 w-5 rounded-full border border-gray-300",
+                  "relative h-5 w-5 rounded-full",
+                  "data-[state=unchecked]:border data-[state=unchecked]:border-gray-300",
                   "focus:outline-none focus:ring-0 focus:ring-offset-0",
                   "focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-1 ",
                   {

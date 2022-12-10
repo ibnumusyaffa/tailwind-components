@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Radio from "../components/Radio";
 function Checkbox() {
   // let [checked, setChecked] = useState("indeterminate");
