@@ -69,7 +69,7 @@ function Page() {
             Right icon
           </Button>
         </div>
-        <div className="mt-4 flex space-x-5">
+        <div className="mt-4 flex space-x-5 bg-gray-100 first-of-type:rad">
           <Button
             variant="outline"
             leftIcon={<ArrowLongLeftIcon></ArrowLongLeftIcon>}
