@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../components/Button";
+import { Button, ButtonGroup } from "../components/Button";
 import {
   ArrowLongRightIcon,
   ArrowLongLeftIcon,
@@ -69,7 +69,7 @@ function Page() {
             Right icon
           </Button>
         </div>
-        <div className="mt-4 flex space-x-5 bg-gray-100 first-of-type:rad">
+        <div className="first-of-type:rad mt-4 flex space-x-5 bg-gray-100">
           <Button
             variant="outline"
             leftIcon={<ArrowLongLeftIcon></ArrowLongLeftIcon>}
@@ -136,12 +136,45 @@ function Page() {
 
       <div className="px-4 py-3">
         <div className="text-lg">Colors</div>
-        <div className="mt-2 flex space-x-5 w-1/2">
-          <Button fullWidth color="sky">Sky</Button>
-          <Button fullWidth color="red">Red</Button>
-          <Button fullWidth color="green">Green</Button>
-          <Button fullWidth color="pink">Pink</Button>
+        <div className="mt-2 flex w-1/2 space-x-5">
+          <Button fullWidth color="sky">
+            Sky
+          </Button>
+          <Button fullWidth color="red">
+            Red
+          </Button>
+          <Button fullWidth color="green">
+            Green
+          </Button>
+          <Button fullWidth color="pink">
+            Pink
+          </Button>
         </div>
+      </div>
+
+      <div className="p-10 ">
+        <ButtonGroup>
+          <Button
+            
+            variant="outline"
+            leftIcon={<ArrowLongLeftIcon></ArrowLongLeftIcon>}
+          >
+            Left Icon
+          </Button>
+          <Button
+            variant="outline"
+            leftIcon={<ArrowLongLeftIcon></ArrowLongLeftIcon>}
+            rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
+          >
+            Left Right Icon
+          </Button>
+          <Button
+            variant="outline"
+            rightIcon={<ArrowLongRightIcon></ArrowLongRightIcon>}
+          >
+            Right icon
+          </Button>
+        </ButtonGroup>
       </div>
     </React.Fragment>
   );

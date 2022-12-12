@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useContext } from "react";
 import clsx from "clsx";
 import { useTheme } from "../context/ThemeProvider";
 function Spinner() {
@@ -81,7 +81,9 @@ function variantStyles({ variant, color }) {
   }
 }
 
-export default React.forwardRef(function Button(
+const ButtonGroupCtx = createContext(false);
+
+export const Button = React.forwardRef(function Button(
   {
     size = "md",
     variant = "solid",
@@ -99,6 +101,8 @@ export default React.forwardRef(function Button(
   ref,
 ) {
   const theme = useTheme();
+  const isButtonGroup = useContext(ButtonGroupCtx);
+
   if (!color) {
     color = theme.defaultColor;
   }
@@ -130,6 +134,16 @@ export default React.forwardRef(function Button(
       "h-14 text-lg": size === "lg",
       "h-16 text-xl": size === "xl",
     },
+    //button group
+    {
+      "first-of-type:!rounded-tr-none first-of-type:!rounded-br-none":
+        isButtonGroup,
+      "last-of-type:!rounded-tl-none last-of-type:!rounded-bl-none":
+        isButtonGroup,
+      "[&:not(:first-of-type):not(:last-of-type)]:!rounded-none": isButtonGroup,
+      "[&:not(:first-of-type):not(:last-of-type)]:!border-r-0 ": isButtonGroup,
+      "[&:not(:first-of-type):not(:last-of-type)]:!border-l-0": isButtonGroup,
+    },
   );
 
   let iconStyle = clsx({
@@ -147,7 +161,7 @@ export default React.forwardRef(function Button(
       onClick={onClick}
       {...props}
     >
-      <div className="flex h-full items-center justify-center  space-x-1.5 px-3">
+      <div className="flex h-full items-center justify-center  space-x-1.5 rounded-tr-none px-3">
         {loading ? (
           <div className={iconStyle}>
             <Spinner></Spinner>
@@ -156,10 +170,22 @@ export default React.forwardRef(function Button(
         {leftIcon && !loading ? (
           <div className={iconStyle}>{leftIcon}</div>
         ) : null}
-        {children ? <div>{children}</div> : null}
+        {children ? (
+          <div>
+            {children}
+          </div>
+        ) : null}
 
         {rightIcon ? <div className={iconStyle}>{rightIcon}</div> : null}
       </div>
     </button>
   );
 });
+
+export function ButtonGroup({ children }) {
+  return (
+    <ButtonGroupCtx.Provider value={true}>
+      <div className="flex">{children}</div>
+    </ButtonGroupCtx.Provider>
+  );
+}
