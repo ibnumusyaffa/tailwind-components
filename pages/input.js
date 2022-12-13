@@ -1,6 +1,6 @@
 import React from 'react';
 import Input from '../components/Input';
-import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
+import { ArrowLongRightIcon,MagnifyingGlassIcon } from '@heroicons/react/24/solid';
 function Page() {
   return (
     <div>
@@ -22,18 +22,11 @@ function Page() {
           type="text"
         ></Input>
         <Input
-          leftOutside={
-            <div className="flex items-center justify-center w-10 text-sm  bg-gray-200 rounded-l-sm border border-r-0 border-gray-300">
-              @
-            </div>
-          }
-          rightOutside={
-            <div className="flex items-center justify-center w-10 text-sm  bg-gray-200 rounded-r-sm border-t border-r border-b border-gray-300">
-              @
-            </div>
-          }
+     
+          // leftOutside="@"
+          rightOutside={<MagnifyingGlassIcon className='w-4 h-4'></MagnifyingGlassIcon>}
           variant="outline"
-          size="md"
+          // size="xl"
           placeholder="Testt"
           type="text"
         ></Input>
