@@ -24,8 +24,8 @@ function Page() {
         <Input
      
           leftOutside="@"
-          // leftOutside={<MagnifyingGlassIcon className='w-6 h-6'></MagnifyingGlassIcon>}
-          variant="outline"
+          rightOutside="@"
+          variant="filled"
           size="xl"
           placeholder="Testt"
           type="text"

@@ -23,6 +23,7 @@ function Input({
             {
               "border-t border-l border-b border-gray-300 bg-gray-200":
                 variant === "outline",
+              "bg-gray-100": variant === "filled",
             },
             {
               "px-1.5 text-xs": size === "xs",
@@ -64,7 +65,7 @@ function Input({
         disabled={disabled}
         className={clsx(
           // base style
-          "z-10 w-full flex-1 outline-none transition-all duration-200 ease-in-out text-gray-800",
+          "z-10 w-full flex-1 text-gray-800 outline-none transition-all duration-200 ease-in-out",
           // variant style
           {
             "border-0 bg-gray-100 focus:bg-white focus:ring-2":
@@ -142,6 +143,7 @@ function Input({
             {
               "border-t border-r border-b border-gray-300 bg-gray-200":
                 variant === "outline",
+              "bg-gray-100": variant === "filled",
             },
             {
               "px-1.5 text-xs": size === "xs",
