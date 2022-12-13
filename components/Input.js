@@ -25,11 +25,11 @@ function Input({
                 variant === "outline",
             },
             {
-              "px-1 text-xs": size === "xs",
+              "px-1.5 text-xs": size === "xs",
               "px-2 text-sm": size === "sm",
               "px-3 text-base": size === "md",
-              "px-4 text-lg": size === "lg",
-              "px-5 text-xl": size === "xl",
+              "px-3.5 text-lg": size === "lg",
+              "px-4 text-xl": size === "xl",
             },
             {
               "rounded-none": rounded === "none",
@@ -144,11 +144,11 @@ function Input({
                 variant === "outline",
             },
             {
-              "px-1 text-xs": size === "xs",
+              "px-1.5 text-xs": size === "xs",
               "px-2 text-sm": size === "sm",
               "px-3 text-base": size === "md",
-              "px-4 text-lg": size === "lg",
-              "px-5 text-xl": size === "xl",
+              "px-3.5 text-lg": size === "lg",
+              "px-4 text-xl": size === "xl",
             },
             {
               "rounded-none": rounded === "none",
