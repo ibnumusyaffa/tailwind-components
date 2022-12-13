@@ -8,7 +8,7 @@ function range(start, end) {
   return Array.from({ length }, (_, index) => index + start);
 }
 
-function Item({ page, type, active, disabled, rounded, ...props }) {
+function Item({ page, type, active, disabled, rounded, color, ...props }) {
   return (
     <button
       {...props}
@@ -16,14 +16,22 @@ function Item({ page, type, active, disabled, rounded, ...props }) {
       className={clsx(
         "flex h-9 w-9 items-center justify-center text-sm",
         "focus:outline-none focus:ring-0",
-        "focus-visible:border-none focus-visible:ring-2 focus-visible:ring-sky-300", //for keyboard navigation
+        "focus-visible:border-none focus-visible:ring-2", //for keyboard navigation
         {
           "px-3": type === "number",
-          "cursor-not-allowed opacity-50": disabled,
           "border border-gray-300 ": !active,
-          "active:border-none active:ring-2 active:ring-sky-300":
-            !active && !disabled,
-          "border-none bg-sky-500 text-white": active,
+          "border-none text-white": active,
+          "cursor-not-allowed opacity-50": disabled,
+          "active:border-none active:ring-2": !active && !disabled,
+        },
+        {
+          "focus-visible:ring-sky-300": color === "sky",
+          "bg-sky-500": color === "sky" && active,
+          "active:ring-sky-300 active:bg-sky-50": color === "sky" && !active && !disabled,
+
+          "focus-visible:ring-green-300": color === "green",
+          "bg-green-500": color === "green" && active,
+          "active:ring-green-300 active:bg-green-50": color === "green" && !active && !disabled,
         },
         {
           "rounded-none": rounded === "none",
@@ -218,8 +226,9 @@ const Pagination = React.forwardRef(function Button(
   {
     siblings = 1,
     boundaries = 1,
+    color = "sky",
     size = "md",
-    rounded = "none",
+    rounded = "md",
     withEdges = false,
     withControls = true,
     page = 1,
@@ -247,6 +256,7 @@ const Pagination = React.forwardRef(function Button(
     <div className="flex space-x-2.5" ref={ref}>
       {withEdges && (
         <Item
+          color={color}
           rounded={rounded}
           page={<DoubleChevronLeft></DoubleChevronLeft>}
           onClick={first}
@@ -256,6 +266,7 @@ const Pagination = React.forwardRef(function Button(
 
       {withControls && (
         <Item
+          color={color}
           rounded={rounded}
           page={<ChevronLeft></ChevronLeft>}
           onClick={previous}
@@ -269,6 +280,7 @@ const Pagination = React.forwardRef(function Button(
         }
         return (
           <Item
+            color={color}
             key={index}
             rounded={rounded}
             type="number"
@@ -283,6 +295,7 @@ const Pagination = React.forwardRef(function Button(
 
       {withControls && (
         <Item
+          color={color}
           rounded={rounded}
           page={<ChevronRight></ChevronRight>}
           onClick={next}
@@ -292,6 +305,7 @@ const Pagination = React.forwardRef(function Button(
 
       {withEdges && (
         <Item
+          color={color}
           rounded={rounded}
           page={<DoubleChevronRight></DoubleChevronRight>}
           onClick={last}

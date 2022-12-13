@@ -1,6 +1,7 @@
 import React from 'react';
 import Input from '../components/Input';
 import { ArrowLongRightIcon } from '@heroicons/react/24/solid';
+import InputPassword from '../components/InputPassword';
 function Page() {
   return (
     <div>
@@ -88,6 +89,7 @@ function Page() {
           placeholder="Test"
           type="text"
         ></Input>
+        <InputPassword placeholder="Masukkan Password"></InputPassword>
       </div>
     </div>
   );
