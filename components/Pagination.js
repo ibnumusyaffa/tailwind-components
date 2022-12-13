@@ -201,7 +201,7 @@ export function usePagination({
       DOTS,
       ...range(_total - boundaries + 1, _total),
     ];
-  }, [_total, siblings, page]);
+  }, [_total, siblings, page, boundaries]);
 
   return {
     range: paginationRange,
@@ -265,9 +265,7 @@ const Pagination = React.forwardRef(function Button(
 
       {range.map((pageNumber, index) => {
         if (pageNumber === DOTS) {
-          return (
-            <ElipsisIcon key={index} disabled={disabled}></ElipsisIcon>
-          );
+          return <ElipsisIcon key={index} disabled={disabled}></ElipsisIcon>;
         }
         return (
           <Item

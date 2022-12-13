@@ -1,13 +1,15 @@
 import React from "react";
 import { Button, ButtonGroup } from "../components/Button";
+import ActionButton from "../components/ActionButton";
 import {
   ArrowLongRightIcon,
   ArrowLongLeftIcon,
-} from "@heroicons/react/24/solid";
+  PencilIcon
+} from "@heroicons/react/24/outline";
 
 function Page() {
   return (
-    <React.Fragment>
+    <div className="p-5">
       <div className="px-4 py-3">
         <div className="text-lg">Variant</div>
         <div className="mt-2 flex space-x-5">
@@ -175,7 +177,10 @@ function Page() {
           </Button>
         </ButtonGroup>
       </div>
-    </React.Fragment>
+      <ActionButton>
+        <PencilIcon></PencilIcon>
+      </ActionButton>
+    </div>
   );
 }
 
