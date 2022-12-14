@@ -8,31 +8,36 @@ function range(start, end) {
   return Array.from({ length }, (_, index) => index + start);
 }
 
-function Item({ page, type, active, disabled, rounded, color, ...props }) {
+function Item({ page, active, disabled, rounded, color, ...props }) {
   return (
     <button
       {...props}
       disabled={disabled}
       className={clsx(
-        "flex h-9 w-9 items-center justify-center text-sm",
+        "flex items-center justify-center text-sm",
         "focus:outline-none focus:ring-0",
-        "focus-visible:border-none focus-visible:ring-2", //for keyboard navigation
+        "focus-visible:border-none focus-visible:ring-2", //keyboard
         {
-          "px-3": type === "number",
+          "h-9 min-w-[2.25rem]": true,
+        },
+        {
           "border border-gray-300 ": !active,
           "border-none text-white": active,
           "cursor-not-allowed opacity-50": disabled,
-          "active:border-none active:ring-2": !active && !disabled,
+          "focus:border-gray-300 active:border-0 active:ring-2":
+            !active && !disabled,
         },
-        {
-          "focus-visible:ring-sky-300": color === "sky",
-          "bg-sky-500": color === "sky" && active,
-          "active:ring-sky-300 active:bg-sky-50": color === "sky" && !active && !disabled,
+        color === "sky" && {
+          "focus-visible:ring-sky-300": true, //keyboard
+          "bg-sky-500": active,
+          "active:bg-sky-50 active:ring-sky-300": !active && !disabled, // onclicked
+        },
+        color === "green" && {
+          "focus-visible:ring-green-300": true, //keyboard
+          "bg-green-500": active,
+          "active:bg-green-50 active:ring-green-300": !active && !disabled, // onclicked
+        },
 
-          "focus-visible:ring-green-300": color === "green",
-          "bg-green-500": color === "green" && active,
-          "active:ring-green-300 active:bg-green-50": color === "green" && !active && !disabled,
-        },
         {
           "rounded-none": rounded === "none",
           "rounded": rounded === "sm",
@@ -227,7 +232,6 @@ const Pagination = React.forwardRef(function Button(
     siblings = 1,
     boundaries = 1,
     color = "sky",
-    size = "md",
     rounded = "md",
     withEdges = false,
     withControls = true,
