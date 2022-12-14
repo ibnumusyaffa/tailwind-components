@@ -23,10 +23,11 @@ function Switch({
       name={name}
       value={value}
       className={cx(
-        "relative",
-        "rounded-full",
+        "relative rounded-full",
+        "focus:outline-none focus:ring-2",
+        "data-[state=unchecked]:bg-gray-300",
         {
-          "opacity-50 cursor-not-allowed": disabled,
+          "cursor-not-allowed opacity-50": disabled,
         },
         {
           "h-[16px] w-[26px]": size === "xs",
@@ -36,7 +37,9 @@ function Switch({
           "h-[34px] w-[62px]": size === "xl",
         },
         {
-          "focus:outline-none focus:ring-2 focus:ring-blue-300 data-[state='unchecked']:bg-gray-300 data-[state='checked']:bg-blue-500":
+          "focus:ring-blue-300 data-[state=checked]:bg-blue-500":
+            color === "blue",
+          "focus:ring-purple-300 data-[state=checked]:bg-purple-500":
             color === "blue",
         },
       )}
@@ -63,7 +66,5 @@ function Switch({
     </SwitchPrimitive.Root>
   );
 }
-
-
 
 export default Switch;

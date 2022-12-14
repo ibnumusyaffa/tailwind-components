@@ -12,8 +12,8 @@ function Demo() {
           onCheckedChange={(e) => setState(e)}
           size="xs"
         ></Switch>
-        <Switch defaultChecked disabled size="sm">
-          <option>Test</option>
+        <Switch checked={state} size="sm">
+          {/* <option>Test</option> */}
         </Switch>
         <Switch checked={state} size="md"></Switch>
         <Switch checked={state} size="lg"></Switch>
