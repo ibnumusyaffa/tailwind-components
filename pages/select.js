@@ -30,18 +30,10 @@ function Page() {
           <option>Test</option>
         </Select>
         <Select
-          leftOutside={
-            <div className="flex w-10 items-center justify-center rounded-l-sm  border border-r-0 border-gray-300 bg-gray-200 text-sm">
-              @
-            </div>
-          }
-          rightOutside={
-            <div className="flex w-10 items-center justify-center rounded-r-sm  border-t border-r border-b border-gray-300 bg-gray-200 text-sm">
-              @
-            </div>
-          }
-          variant="outline"
-          size="md"
+          leftOutside="@"
+          rightOutside="@"
+          variant="filled"
+          size="xl"
           placeholder="Testt"
           type="text"
         >
