@@ -68,7 +68,7 @@ function Badge({
   rounded = "sm",
   children,
   fullWidth = false,
-  withDot = true,
+  withDot = false,
   ...props
 }) {
   let style = clsx(
