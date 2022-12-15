@@ -1,11 +1,11 @@
 import React from "react";
 import * as DropdownMenu from "../components/DropdownMenu";
-import Button from "../components/Button";
+import { Button } from "../components/Button";
 import {
   Cog6ToothIcon,
   ArrowLeftOnRectangleIcon,
 } from "@heroicons/react/24/outline";
-function dropdown() {
+function Page() {
   return (
     <div className="p-20">
       <DropdownMenu.Root>
@@ -38,4 +38,4 @@ function dropdown() {
   );
 }
 
-export default dropdown;
+export default Page;
