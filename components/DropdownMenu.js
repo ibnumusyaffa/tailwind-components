@@ -1,8 +1,10 @@
-import React from "react";
+import React, { createContext, useContext, useState } from "react";
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu";
 import cx from "clsx";
+import { motion, AnimatePresence } from "framer-motion";
 
-export const Root = DropdownMenu.Root;
+const DropdownCtx = createContext(false);
+
 export const Trigger = DropdownMenu.Trigger;
 export const Group = DropdownMenu.Group;
 
@@ -22,24 +24,59 @@ function Arrow() {
   );
 }
 
-export const Content = React.forwardRef(function Button(props, forwardedRef) {
+export function Root(props) {
+  let [open, setOpen] = useState(false);
   return (
-    <DropdownMenu.Portal className="relative">
-      <DropdownMenu.Content
-        {...props}
-        align="start"
-        ref={forwardedRef}
-        className="rounded bg-white px-0.5 py-0.5 shadow-md ring-1 ring-black ring-opacity-5 focus:outline-none"
-      >
+    <DropdownCtx.Provider value={{ open, setOpen }}>
+      <DropdownMenu.Root open={open} onOpenChange={(value) => setOpen(value)}>
         {props.children}
-        <Arrow></Arrow>
-      </DropdownMenu.Content>
-    </DropdownMenu.Portal>
+      </DropdownMenu.Root>
+    </DropdownCtx.Provider>
+  );
+}
+
+export const Content = React.forwardRef(function Button(props, forwardedRef) {
+  const { open } = useContext(DropdownCtx);
+  return (
+    <AnimatePresence>
+      {open ? (
+        <DropdownMenu.Portal forceMount className="relative">
+          <DropdownMenu.Content
+            asChild
+            {...props}
+            align="start"
+            ref={forwardedRef}
+            className="rounded bg-white px-0.5 py-0.5 shadow-md ring-1 ring-black ring-opacity-5 focus:outline-none"
+          >
+            <motion.div
+              initial={{
+                opacity: 0,
+                scale: 0.95,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                transition: { duration: 0.15, ease: "easeOut" },
+              }}
+              exit={{
+                opacity: 0,
+                scale: 0.97,
+                transition: { duration: 0.1, ease: "easeIn" },
+              }}
+            >
+              {props.children}
+              <Arrow></Arrow>
+            </motion.div>
+          </DropdownMenu.Content>
+        </DropdownMenu.Portal>
+      ) : null}
+    </AnimatePresence>
   );
 });
 export function Item({ disabled, icon, color = "default", ...props }) {
   return (
     <DropdownMenu.Item
+      forceMount
       disabled={disabled}
       className={cx(
         "flex items-center space-x-2 rounded-sm px-3 py-2",
@@ -64,7 +101,7 @@ export function Item({ disabled, icon, color = "default", ...props }) {
 
 export function Label(props) {
   return (
-    <DropdownMenu.Label className="mt-1.5 mb-2 flex items-center px-3 text-xs font-semibold text-gray-500 ">
+    <DropdownMenu.Label forceMount className="mt-1.5 mb-2 flex items-center px-3 text-xs font-semibold text-gray-500 ">
       {props.children}
     </DropdownMenu.Label>
   );
@@ -72,6 +109,6 @@ export function Label(props) {
 
 export function Separator() {
   return (
-    <DropdownMenu.Separator className="-mx-1 my-2 h-[1px] bg-gray-300"></DropdownMenu.Separator>
+    <DropdownMenu.Separator forceMount className="-mx-1 my-2 h-[1px] bg-gray-300"></DropdownMenu.Separator>
   );
 }
